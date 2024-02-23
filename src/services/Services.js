@@ -5,6 +5,10 @@ class Services{
     this.model = nomeDoModel;
   }
 
+  async pegaRegistrosPorEscopo(escopo){
+    return dataSource[this.model].scope(escopo).findAll();
+  }
+
   async listarTodosOsRegistros(){
     return dataSource[this.model].findAll();
   }
