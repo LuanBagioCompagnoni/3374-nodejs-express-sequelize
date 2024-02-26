@@ -5,7 +5,7 @@ class PessoaServices extends Services {
     super('Pessoa');
   }
 
-  async pegaMatriculasPorEstudante(id){
+  async pegaMatriculasAtivasPorEstudante(id){
     const estudante = await super.pegaUmRegistroPorId(id);
     const listaMatriculas = await estudante.getAulasMatriculadas(); //metodo gerado automaticamente pelo sequelize, sendo get{nome_do_registro}. Esse nome do registro foi adicionado lá no model:
     /*
@@ -20,6 +20,12 @@ class PessoaServices extends Services {
 
   async pegaPessoasEscopoTodos(){
     return await super.pegaRegistrosPorEscopo('todosOsRegistros');
+  }
+
+  async pegaTodasAsMatriculasPorEstudante(id){
+    const estudante = await super.pegaUmRegistroPorId(id);
+    const listaMatriculas = await estudante.getTodasAsMatriculas();
+    return listaMatriculas;
   }
 }
 
