@@ -9,8 +9,12 @@ class Services{
     return dataSource[this.model].scope(escopo).findAll();
   }
 
-  async listarTodosOsRegistros(){
-    return dataSource[this.model].findAll();
+  async contaRegistros(options){
+    return dataSource[this.model].findAndCountAll({...options});
+  }
+
+  async listarTodosOsRegistros(where = {}){
+    return dataSource[this.model].findAll( {where: { ...where } });
   }
 
   async pegaUmRegistroPorId(id) {

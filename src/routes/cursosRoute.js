@@ -6,6 +6,7 @@ const cursoController = new CursoController();
 const router = Router();
 
 router.get('/curso', (req, res) => cursoController.listarTodos(req, res));
+router.get('/curso', (req, res) => cursoController.pegaCursos(req, res));
 router.get('/curso/:id', (req, res) => cursoController.pegaUmPorId(req, res));
 router.post('/curso', (req, res) => cursoController.criaNovo(req, res));
 router.put('/curso/:id', (req, res) => cursoController.atualiza(req, res));
